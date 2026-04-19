@@ -50,4 +50,24 @@ public class AuthController {
                 "email", student.getEmail()
         ));
     }
+
+    // ── NEW: Forgot Password ──
+    // Sends a reset OTP to the given email (reuses your existing OTP mechanism)
+    @PostMapping("/forgot-password")
+    public ResponseEntity<?> forgotPassword(@RequestBody Map<String, String> body) {
+        String result = authService.forgotPassword(body.get("email"));
+        return ResponseEntity.ok(Map.of("message", result));
+    }
+
+    // ── NEW: Reset Password ──
+    // Verifies the reset OTP and updates the password
+    @PostMapping("/reset-password")
+    public ResponseEntity<?> resetPassword(@RequestBody Map<String, String> body) {
+        String result = authService.resetPassword(
+                body.get("email"),
+                body.get("otp"),
+                body.get("newPassword")
+        );
+        return ResponseEntity.ok(Map.of("message", result));
+    }
 }
