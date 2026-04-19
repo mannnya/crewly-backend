@@ -1,20 +1,30 @@
-# Ignore backend (Java)
-src/
+# Compiled
 target/
 *.class
 
-# Ignore tools / installers
-*.exe
-ngrok*
-node-v*
-
-# Ignore IDE files
-.vscode/
+# IDE
 .idea/
+*.iml
+.vscode/
 
-# OS junk
+# OS
 .DS_Store
 Thumbs.db
 
-# logs
+# Frontend (separate repo)
+crewly-frontend/
+crewly-frontend.html
+
+# Junk
+campus-connect/
+node-v24.14.0-x64.msi
+Microsoft.Services.Store.winmd
+pomfile.txt
+jjwt-0.9.1.jar
+ngrok*
+node-v*
+*.exe
+
+# Logs
 *.log
+application-local.properties
